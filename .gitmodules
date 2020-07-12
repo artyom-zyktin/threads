@@ -1,0 +1,3 @@
+[submodule "timer"]
+	path = timer
+	url = git@github.com:artyom-zyktin/timer.git
