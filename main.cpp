@@ -106,10 +106,12 @@ void Wrapper::operator()(Caller&& caller, Handler&& handler, Printer&& printer)
 
 void Printer::operator()(svector& text, svector& comments)
 {
+#ifdef _DEBUG
     for (auto it = text.begin(); it < text.end(); ++it) cout << *it << endl;
     cout << "-------------------------------------------------------------------------------" << endl;
     for (auto it = comments.begin(); it < comments.end(); ++it) cout << *it << endl;
     cout << "-------------------------------------------------------------------------------" << endl;
+#endif
 }
 
 void CallerOneThread::operator()(Handler&& handler, squeue& raw_text, mutex& mtx_rt,
