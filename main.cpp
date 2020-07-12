@@ -136,11 +136,11 @@ void Handler::operator()(squeue& raw_text, mutex& mtx_rt,
 {
     while (true)
     {
+        if (raw_text.empty()) break;
         string line;
+
         {
             lock l(mtx_rt);
-
-            if (raw_text.empty()) break;
             line = raw_text.front();
             raw_text.pop();
         }
